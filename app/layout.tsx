@@ -25,12 +25,16 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+        <link rel="icon" type="image/png" href="/assets/favicon.png" />
+      </head>
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
           <LoginModal />
           <RegisterModal />
-          <NavBar currentUser={currentUser}/>
+          <NavBar currentUser={currentUser} />
         </ClientOnly>
         {children}
       </body>
