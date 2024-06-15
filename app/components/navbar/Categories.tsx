@@ -1,5 +1,8 @@
-import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
+'use client';
+
 import Container from "../Countainer";
+
+import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 import { GiBarn, GiBoatFishing, GiCactus, GiCastle, GiCaveEntrance, GiForestCamp, GiIsland, GiWindmill } from "react-icons/gi";
 import { MdOutlineVilla } from "react-icons/md";
 import CategoryBox from "../CategoryBox";
