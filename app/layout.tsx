@@ -31,6 +31,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>WMorocco | Vacation rentals, cabins, beach houses & more</title>
         <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
         <link rel="icon" type="image/png" href="/assets/favicon.png" />
       </head>
