@@ -1,6 +1,6 @@
 'use client';
 
-import Container from "../Countainer";
+import Container from "../Container";
 
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 import { GiBarn, GiBoatFishing, GiCactus, GiCastle, GiCaveEntrance, GiForestCamp, GiIsland, GiWindmill } from "react-icons/gi";
@@ -83,7 +83,7 @@ export const categories = [
         description: 'This property is the barn!'
     },
     {
-        label: 'Lux',
+        label: 'Luxe',
         icon: IoDiamond,
         description: 'This property is luxurious!'
     }

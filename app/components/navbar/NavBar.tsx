@@ -1,6 +1,6 @@
 'use client';
 
-import Container from "../Countainer";
+import Container from "../Container";
 import Categories from "./Categories";
 import Logo from "./Logo";
 import Search from "./Search";

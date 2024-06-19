@@ -36,14 +36,18 @@ export default async function RootLayout({
         <link rel="icon" type="image/png" href="/assets/favicon.png" />
       </head>
       <body className={font.className}>
-        <ClientOnly>
-          <ToasterProvider />
-          <LoginModal />
-          <RentModal />
-          <RegisterModal />
-          <NavBar currentUser={currentUser} />
-        </ClientOnly>
-        {children}
+        <div className="m-0 p-0 bg-white">
+          <ClientOnly>
+            <ToasterProvider />
+            <LoginModal />
+            <RentModal />
+            <RegisterModal />
+            <NavBar currentUser={currentUser} />
+          </ClientOnly>
+          <div className="pb-20 pt-28">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   )
