@@ -15,7 +15,7 @@ export const categories = [
     {
         label: 'Beach',
         icon: TbBeach,
-        descreption: 'This property is close to the beach!'
+        description: 'This property is close to the beach!'
     },
     {
         label: 'Windmills',
