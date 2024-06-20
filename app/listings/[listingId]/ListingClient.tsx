@@ -71,10 +71,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
         .then(() => {
             toast.success('Listing reserved!');
             setDateRange(initialDateRange);
-<<<<<<< HEAD
-            
-=======
->>>>>>> 67d4b9a4583a8b49e08794565fa9f2213416637d
+
             router.refresh();
         })
         .catch(() => {
@@ -100,11 +97,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
             );
 
             if (dayCount && listing.price) {
-<<<<<<< HEAD
-                setTotalPrice(dayCount * listing.price); // 5% for WMorocco reservation fee
-=======
                 setTotalPrice(dayCount * listing.price * 1.05); // 5% for WMorocco reservation fee
->>>>>>> 67d4b9a4583a8b49e08794565fa9f2213416637d
             } else {
                 setTotalPrice(listing.price);
             }
