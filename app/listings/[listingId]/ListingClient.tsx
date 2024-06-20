@@ -5,9 +5,9 @@ import toast from "react-hot-toast";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
-import { Reservation } from "@prisma/client";
+import { Range } from "react-date-range";
 
-import { SafeListing, SafeUser } from "@/app/types";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import { categories } from "@/app/components/navbar/Categories";
 import Container from "@/app/components/Container";
 import ListingHead from "@/app/components/Listings/ListingHead";
@@ -21,7 +21,7 @@ const initialDateRange = {
     key: 'selection'
 };
 interface ListingClientProps {
-    reservations?: Reservation[];
+    reservations?: SafeReservation[];
     listing: SafeListing & {
         user: SafeUser
     };
@@ -53,7 +53,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
     const [isLoading, setIsLoading] = useState(false);
     const [totalPrice, setTotalPrice] = useState(listing.price);
-    const [dateRange, setDateRange] = useState(initialDateRange);
+    const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
     const onCreateReservation = useCallback(() => {
         if (!currentUser) {
@@ -71,6 +71,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
         .then(() => {
             toast.success('Listing reserved!');
             setDateRange(initialDateRange);
+            
             router.refresh();
         })
         .catch(() => {
@@ -96,7 +97,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
             );
 
             if (dayCount && listing.price) {
-                setTotalPrice(dayCount * listing.price);
+                setTotalPrice(dayCount * listing.price); // 5% for WMorocco reservation fee
             } else {
                 setTotalPrice(listing.price);
             }
