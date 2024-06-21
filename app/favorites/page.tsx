@@ -1,5 +1,6 @@
 import EmptyState from "../components/EmptyState";
 import ClientOnly from "../components/ClientOnly";
+import FavoritesClient from "./FavoritesClient";
 
 import getCurrentUser from "../actions/getCurrentUser";
 import getFavoriteListings from "../actions/getFavoriteListings";
@@ -21,7 +22,7 @@ const ListingPage = async () => {
 
     return (
         <ClientOnly>
-            <FavoriteClient
+            <FavoritesClient
                 listings={listings}
                 currentUser={currentUser}
             />
