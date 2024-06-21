@@ -27,7 +27,7 @@ model User{
   accounts Account[]
   listings Listing[]
   reservations Reservation[]
-  reviews Review[]
+  // reviews Review[]
 }
 
 model Account {
@@ -65,7 +65,7 @@ model Listing {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[]
-  reviews Review[]
+  // reviews Review[]
 }
 
 model Reservation {
@@ -81,34 +81,36 @@ model Reservation {
   listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
 }
 
-model Review {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  userId String @db.ObjectId
-  listingId String @db.ObjectId
-  rating Int
-  comment String
-  createdAt DateTime @default(now())
+// model Review {
+//   id String @id @default(auto()) @map("_id") @db.ObjectId
+//   userId String @db.ObjectId
+//   listingId String @db.ObjectId
+//   rating Int
+//   comment String
+//   createdAt DateTime @default(now())
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
-}
+//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+// }
 
-model Admin {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  email String @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
+// model Admin {
+//   id String @id @default(auto()) @map("_id") @db.ObjectId
+//   name String
+//   email String @unique
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
 
-model Event {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
-  description String
-  date DateTime
-  location String
-  createdAt DateTime @default(now())
-}
+// model Event {
+//   id String @id @default(auto()) @map("_id") @db.ObjectId
+//   title String
+//   description String
+//   date DateTime
+//   location String
+//   createdAt DateTime @default(now())
+// }
+
+
 
 
 // ********** PostgeSQL: ********** // 
