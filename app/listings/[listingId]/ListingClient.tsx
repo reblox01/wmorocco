@@ -1,25 +1,25 @@
 'use client';
 
-import axios from "axios";
-import toast from "react-hot-toast";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
-import { useRouter } from "next/navigation";
-import { Range } from "react-date-range";
-
-import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
-import { categories } from "@/app/components/navbar/Categories";
-import Container from "@/app/components/Container";
-import ListingHead from "@/app/components/Listings/ListingHead";
-import ListingInfo from "@/app/components/Listings/ListingInfo";
-import useLoginModal from "@/app/hooks/useLoginModal";
-import ListingReservation from "@/app/components/Listings/ListingReservation";
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { differenceInCalendarDays, eachDayOfInterval } from 'date-fns';
+import { useRouter } from 'next/navigation';
+import { Range } from 'react-date-range';
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
+import { categories } from '@/app/components/navbar/Categories';
+import Container from '@/app/components/Container';
+import ListingHead from '@/app/components/Listings/ListingHead';
+import ListingInfo from '@/app/components/Listings/ListingInfo';
+import useLoginModal from '@/app/hooks/useLoginModal';
+import ListingReservation from '@/app/components/Listings/ListingReservation';
 
 const initialDateRange = {
     startDate: new Date(),
     endDate: new Date(),
     key: 'selection'
 };
+
 interface ListingClientProps {
     reservations?: SafeReservation[];
     listing: SafeListing & {
@@ -38,16 +38,13 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
     const disabledDates = useMemo(() => {
         let dates: Date[] = [];
-
         reservations.forEach((reservation) => {
             const range = eachDayOfInterval({
                 start: new Date(reservation.startDate),
                 end: new Date(reservation.endDate)
             });
-
             dates = [...dates, ...range];
         });
-
         return dates;
     }, [reservations]);
 
@@ -65,14 +62,13 @@ const ListingClient: React.FC<ListingClientProps> = ({
         axios.post('/api/reservations', {
             totalPrice,
             startDate: dateRange.startDate,
-            endOfDay: dateRange.endDate,
+            endDate: dateRange.endDate,
             listingId: listing?.id
         })
         .then(() => {
             toast.success('Listing reserved!');
             setDateRange(initialDateRange);
-
-            router.refresh();
+            router.push('/trips');
         })
         .catch(() => {
             toast.error('Something went wrong. Please try again!');
