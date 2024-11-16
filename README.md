@@ -45,7 +45,7 @@ Welcome to **Wonderful Morocco**! This comprehensive booking application allows 
 
 ### Live Preview - Desktop version
 
-[![Watch the video](https://github.com/reblox01/wmorocco/assets/74146687/8941be9c-7884-460d-b940-c2145e78e65e)](https://ofpptcasa-my.sharepoint.com/:v:/g/personal/2003122000195_ofppt-edu_ma/ERYtassSs3tDnt-Cxa41f8IBzRadDW1NfCS-eyicCCAdxQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ZOeIe2)
+[![Watch the video](https://github.com/reblox01/wmorocco/assets/74146687/8941be9c-7884-460d-b940-c2145e78e65e)](https://ofpptcasa-my.sharepoint.com/:v:/g/personal/2003122000195_ofppt-edu_ma/ERYtassSs3tDnt-Cxa41f8IBzRadDW1NfCS-eyicCCAdxQ?e=XJ3gSe)
 
 ### Live Preview - Mobile version
 
