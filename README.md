@@ -43,6 +43,9 @@ Welcome to **Wonderful Morocco**! This comprehensive booking application allows 
 
 ## Live Previews
 
+### Live URL:
+[WMorocco.vercel.app](https://wmorocco.vercel.app/)
+
 ### Live Preview - Desktop version
 
 [![Watch the video](https://github.com/reblox01/wmorocco/assets/74146687/8941be9c-7884-460d-b940-c2145e78e65e)](https://ofpptcasa-my.sharepoint.com/:v:/g/personal/2003122000195_ofppt-edu_ma/ERYtassSs3tDnt-Cxa41f8IBzRadDW1NfCS-eyicCCAdxQ?e=XJ3gSe)
