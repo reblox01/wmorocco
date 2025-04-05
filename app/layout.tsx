@@ -37,7 +37,7 @@ export default async function RootLayout({
         <link rel="icon" type="image/png" href="/assets/favicon.png" />
       </head>
       <body className={font.className}>
-        <div className="h-full min-h-screen w-full bg-white">
+        <div className="h-full min-h-screen w-full bg-white text-black">
           <ClientOnly>
             <ToasterProvider />
             <RentModal />
