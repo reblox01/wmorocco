@@ -59,13 +59,8 @@ Welcome to **Wonderful Morocco**! This comprehensive booking application allows 
 1. **Clone the repository:**
 
     ```bash
-<<<<<<< HEAD
     git clone https://github.com/reblox01/wmorocco.git
     cd wmorocco
-=======
-    git clone https://github.com/reblox01/wonderful-morocco.git
-    cd wonderful-morocco
->>>>>>> 7b998da13efc5c90a44fc2f8ec47ec157a37f184
     ```
 
 2. **Install dependencies:**
