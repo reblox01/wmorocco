@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mongo:
+        image: mongo:6
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --quiet --eval 'db.runCommand({ ping: 1 })'" \
+          --health-interval 10s \
+          --health-timeout 5s \
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build Next.js app
+        run: npm run build
+
+      # Optional tests placeholder
+      #- name: Run unit tests
+      #  run: npm test
+
+      - name: Build Docker image
+        run: docker build -t wmorocco-app:ci .
+
+      - name: Push image to GHCR (if token provided)
+        if: ${{ secrets.GHCR_PAT != '' }}
+        env:
+          GHCR_PAT: ${{ secrets.GHCR_PAT }}
+        run: |
+          echo $GHCR_PAT | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          docker tag wmorocco-app:ci ghcr.io/${{ github.repository_owner }}/wmorocco-app:latest
+          docker push ghcr.io/${{ github.repository_owner }}/wmorocco-app:latest 

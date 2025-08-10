@@ -1,32 +1,27 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 
-import "./globals.css";
+import './globals.css';
 
-import NavBar from "./components/navbar/NavBar";
-import ClientOnly from "./components/ClientOnly";
+import NavBar from './components/navbar/NavBar';
+import ClientOnly from './components/ClientOnly';
 
-import RegisterModal from "./components/modals/RegisterModal";
-import LoginModal from "./components/modals/LoginModal";
-import RentModal from "./components/modals/RentModal";
-import SearchModal from "./components/modals/SearchModal";
+import RegisterModal from './components/modals/RegisterModal';
+import LoginModal from './components/modals/LoginModal';
+import RentModal from './components/modals/RentModal';
+import SearchModal from './components/modals/SearchModal';
 
-import ToasterProvider from "./providers/ToasterProvider";
-import getCurrentUser from "./actions/getCurrentUser";
+import ToasterProvider from './providers/ToasterProvider';
+import getCurrentUser from './actions/getCurrentUser';
 
-
-const font = Inter({ subsets: ["latin"] });
+const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "WMorocco",
-  description: "Booking Web Application",
+  title: 'WMorocco',
+  description: 'Booking Web Application',
 };
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const currentUser = await getCurrentUser();
 
   return (
@@ -46,11 +41,9 @@ export default async function RootLayout({
             <RegisterModal />
             <NavBar currentUser={currentUser} />
           </ClientOnly>
-          <div className="pb-20 pt-28">
-            {children}
-          </div>
+          <div className="pb-20 pt-28">{children}</div>
         </div>
       </body>
     </html>
-  )
+  );
 }

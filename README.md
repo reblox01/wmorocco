@@ -40,10 +40,13 @@ Welcome to **Wonderful Morocco**! This comprehensive booking application allows 
 - **Styling:** Tailwind CSS
 - **Authentication:** Google Auth, GitHub Auth, and Next.js Auth
 - **Image Hosting:** Cloud-based solutions
+- **Email Sending:** Resend
+- **Payment Processing:** Stripe
 
 ## Live Previews
 
 ### Live URL:
+
 [WMorocco.vercel.app](https://wmorocco.vercel.app/)
 
 ### Live Preview - Desktop version
@@ -58,38 +61,30 @@ Welcome to **Wonderful Morocco**! This comprehensive booking application allows 
 
 1. **Clone the repository:**
 
-    ```bash
-    git clone https://github.com/reblox01/wmorocco.git
-    cd wmorocco
-    ```
+   ```bash
+   git clone https://github.com/reblox01/wmorocco.git
+   cd wmorocco
+   ```
 
 2. **Install dependencies:**
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 3. **Set up environment variables:**
 
-    Create a `.env` file in the root directory and add the necessary environment variables:
+   Create a `.env` file in the root directory and add the necessary environment variables:
 
-    ```env
-    DATABASE_URL="your_database_url"
-    NEXTAUTH_SECRET="your_nextauth_secret"
-    GITHUB_ID=your_github_id
-    GITHUB_SECRET=your_github_secret
-    GOOGLE_CLIENT_ID=your_google_client_id
-    GOOGLE_CLIENT_SECRET=your_google_client_secret
-    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloudinary_cloud_name"
-    ```
+   See `.env.example` for a complete list. Do NOT commit secrets. Ensure Stripe webhook secret is set in production.
 
 4. **Run the development server:**
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
-    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Usage
 
@@ -107,21 +102,21 @@ We welcome contributions from the community! If you’d like to contribute, plea
 1. **Fork the repository**
 2. **Create your feature branch:**
 
-    ```bash
-    git checkout -b feature/YourFeature
-    ```
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
 
 3. **Commit your changes:**
 
-    ```bash
-    git commit -m 'Add some feature'
-    ```
+   ```bash
+   git commit -m 'Add some feature'
+   ```
 
 4. **Push to the branch:**
 
-    ```bash
-    git push origin feature/YourFeature
-    ```
+   ```bash
+   git push origin feature/YourFeature
+   ```
 
 5. **Open a pull request**
 

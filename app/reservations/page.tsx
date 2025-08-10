@@ -6,42 +6,36 @@ import getReservations from '../actions/getReservations';
 import ReservationsClient from './ReservationsClient';
 
 const ReservationsPage = async () => {
-    const currentUser = await getCurrentUser();
+  const currentUser = await getCurrentUser();
 
-    if (!currentUser) {
-        return (
-            <ClientOnly>
-                <EmptyState
-                    title='Unauthorized'
-                    subtitle='Please login'
-                />
-            </ClientOnly>
-        );
-    }
-
-    const reservations = await getReservations({
-        authorId: currentUser.id
-    });
-
-    if (reservations.length === 0) {
-        return (
-            <ClientOnly>
-                <EmptyState
-                    title='No Reservations Found'
-                    subtitle='Looks like you have no reservation on your properties'
-                />
-            </ClientOnly>
-        )
-    }
-
+  if (!currentUser) {
     return (
-        <ClientOnly>
-            <ReservationsClient
-                reservations={reservations}
-                currentUser={currentUser}
-            />
-        </ClientOnly>
-    )
+      <ClientOnly>
+        <EmptyState title="Unauthorized" subtitle="Please login" />
+      </ClientOnly>
+    );
+  }
+
+  const reservations = await getReservations({
+    authorId: currentUser.id,
+  });
+
+  if (reservations.length === 0) {
+    return (
+      <ClientOnly>
+        <EmptyState
+          title="No Reservations Found"
+          subtitle="Looks like you have no reservation on your properties"
+        />
+      </ClientOnly>
+    );
+  }
+
+  return (
+    <ClientOnly>
+      <ReservationsClient reservations={reservations} currentUser={currentUser} />
+    </ClientOnly>
+  );
 };
 
 export default ReservationsPage;
